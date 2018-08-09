@@ -1,0 +1,19 @@
+version: '3.7'
+
+volumes:
+  Data:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/NGS_Data'
+
+services:
+  fastqc:
+    build:
+      args:
+        UID: $UID
+      context: fastqc
+    image: onlelonely/fastqc:latest
+    volumes:
+      - Data:/NGS_Data
