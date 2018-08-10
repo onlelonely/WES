@@ -9,5 +9,5 @@ docker volume prune
 
 docker run -v /mnt/IronWolf/WES/NGS_Data/2_Sorted/:/DATA -it onlelonely/fastqc /DATA/[BAM FILE NMAE]
 
-docker run -v /mnt/IronWolf/WES/NGS_Data/4_VCF/:/DATA -v /home/public_program/annovar/humandb/:/humandb -it annovar /DATA/6.avinput /humandb -buildver hg19 -out /DATA/output -remove -protocol refGene,ensGene,phastConsElements46way,genomicSuperDups,1000g2012apr_asn,snp137NonFlagged,ljb23_all,gnomad_genome,clinvar_20170905,cadd13gt10 -operation g,g,r,r,f,f,f,f,f,f -nastring .
+docker run -v /mnt/IronWolf/WES/NGS_Data/4_VCF/:/DATA -v /mnt/IronWolf/WES/NGS_Data/ref/humandb/:/humandb -it annovar /DATA/6.avinput /humandb -buildver hg19 -out /DATA/output -remove -protocol refGene,ensGene,phastConsElements46way,genomicSuperDups,1000g2012apr_asn,snp137NonFlagged,ljb23_all,gnomad_genome,clinvar_20170905,cadd13gt10 -operation g,g,r,r,f,f,f,f,f,f -nastring .
 

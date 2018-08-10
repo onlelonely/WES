@@ -1,10 +1,37 @@
 version: '3.7'
 
 services:
+  base:
+    build:
+      context: base
+    image: onlelonely/base:latest
+
   fastqc:
     build:
       args:
         UID: 1003
       context: fastqc
     image: onlelonely/fastqc:latest
+
+  ANNOVAR:
+    build:
+      args:
+        UID: 1003
+      context: annovar
+    image: onlelonely/annovar:latest
+
+  bwa:
+    build:
+      args:
+        UID: 1003
+      context: bwa
+    image: onlelonely/bwa:latest
+
+  samtools:
+    build:
+      args:
+        UID: 1003
+      context: samtools
+    image: onlelonely/samtools:latest
+
 
