@@ -1,4 +1,4 @@
-FROM base:latest
+FROM onlelonely/base:latest
 
 MAINTAINER Li Hsin Chang <cc1296@ym.edu.tw>
 

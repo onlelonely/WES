@@ -1,4 +1,4 @@
-FROM base:latest
+FROM onlelonely/base:latest
 
 MAINTAINER Li Hsin Chang <cc1296@ym.edu.tw>
 
@@ -16,10 +16,6 @@ ARG UID
 
 RUN useradd -u $UID ihlee
 
-USER root
-
-COPY set-permission.sh /set-permission.sh
-CMD ["/set-permission.sh"]
 USER ihlee
 ENTRYPOINT ["usr/local/bin/fastqc"]
 

@@ -12,7 +12,7 @@ RUN yum install -y \
        unzip \
        bzip2 \
        make \
-       gcc
+       gcc 
 
 RUN yum install -y zlib-devel
 RUN yum install -y \ 
@@ -20,6 +20,19 @@ RUN yum install -y \
        bzip2-devel \
        xz-devel.x86_64 \
        libcurl-devel \
-       openssl-devel
+       openssl-devel \
+       python-dev \
+       python-pip \
+       tzdata 
+
+RUN yum install -y wget
+
+
+RUN wget https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh -O ~/anaconda.sh && \
+    /bin/bash ~/anaconda.sh -b -p /opt/conda && \
+    rm ~/anaconda.sh && \
+    echo "export PATH=/opt/conda/bin:$PATH" >> ~/.bashrc
+
+
 
 
