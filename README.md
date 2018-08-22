@@ -1,9 +1,13 @@
 # WES
 
-VGHTPE Ihlee lab dockerized WES pipeline testing 
+VGHTPE Ihlee lab dockerized WES pipeline 
 
 
 - [fastqc](https://hub.docker.com/r/onlelonely/fastqc/)
+- [ANNOVAR](https://hub.docker.com/r/onlelonely/annovar/)
+- [bwa](https://hub.docker.com/r/onlelonely/bwa/)
+- [Samtools](https://hub.docker.com/r/onlelonely/samtools/)
+- [bwa & samtools & Anconda for pipeline](https://hub.docker.com/r/onlelonely/tools/)
 
 Command examples:
 To open FastQC GUI
