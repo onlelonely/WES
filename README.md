@@ -62,9 +62,9 @@ and you'll get
 
 ***
 
+annovar you should download annovar.latest.tar.gz and build youreslf
 
 - [fastqc](https://hub.docker.com/r/onlelonely/fastqc/)
-- [ANNOVAR](https://hub.docker.com/r/onlelonely/annovar/)
 - [bwa](https://hub.docker.com/r/onlelonely/bwa/)
 - [Samtools](https://hub.docker.com/r/onlelonely/samtools/)
 - [bwa & samtools & Anconda for pipeline](https://hub.docker.com/r/onlelonely/tools/)
