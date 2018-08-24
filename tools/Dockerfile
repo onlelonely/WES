@@ -23,6 +23,11 @@ RUN wget -O /tmp/samtools-1.9.tar.bz2  https://github.com/samtools/samtools/rele
     && make \
     && make install
 
+RUN wget https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh -O ~/anaconda.sh && \
+    /bin/bash ~/anaconda.sh -b -p /opt/conda && \
+    rm ~/anaconda.sh && \
+    echo "export PATH=/opt/conda/bin:$PATH" >> ~/.bashrc
+
 RUN yum -y remove wget dpkg; \
     yum clean all
 
@@ -34,6 +39,7 @@ COPY pipe.py /usr/local/bin/pipe.py
 RUN chmod +x /usr/local/bin/pipe.py
 RUN ln -s /usr/local/bin/pipe.py /usr/local/bin/pipe
 
+USER ihlee
 CMD ["/usr/local/bin/pipe"]
 
 

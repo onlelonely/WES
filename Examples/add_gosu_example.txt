@@ -1,0 +1,16 @@
+ENV GOSU_VERSION 1.10
+RUN set -ex; \
+	\
+	yum -y install epel-release; \
+	yum -y install wget dpkg; \
+	\
+	dpkgArch="$(dpkg --print-architecture | awk -F- '{ print $NF }')"; \
+	wget -O /usr/bin/gosu "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$dpkgArch"; \
+	wget -O /tmp/gosu.asc "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$dpkgArch.asc"; \
+	\
+	chmod +x /usr/bin/gosu; \
+# verify that the binary works
+	gosu nobody true; \
+	\
+	yum -y remove wget dpkg; \
+	yum clean all

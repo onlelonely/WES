@@ -28,11 +28,6 @@ RUN yum install -y \
 RUN yum install -y wget
 
 
-RUN wget https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh -O ~/anaconda.sh && \
-    /bin/bash ~/anaconda.sh -b -p /opt/conda && \
-    rm ~/anaconda.sh && \
-    echo "export PATH=/opt/conda/bin:$PATH" >> ~/.bashrc
-
 
 
 

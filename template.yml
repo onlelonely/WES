@@ -1,19 +1,44 @@
 version: '3.7'
 
-volumes:
-  Data:
-    driver: local
-    driver_opts:
-      type: 'none'
-      o: 'bind'
-      device: '/NGS_Data'
-
 services:
+  base:
+    build:
+      context: base
+    image: onlelonely/base:latest
+
   fastqc:
     build:
       args:
         UID: $UID
       context: fastqc
     image: onlelonely/fastqc:latest
-    volumes:
-      - Data:/NGS_Data
+
+  ANNOVAR:
+    build:
+      args:
+        UID: $UID
+      context: annovar
+    image: onlelonely/annovar:latest
+
+  bwa:
+    build:
+      args:
+        UID: $UID
+      context: bwa
+    image: onlelonely/bwa:latest
+
+  samtools:
+    build:
+      args:
+        UID: $UID
+      context: samtools
+    image: onlelonely/samtools:latest
+
+  tools:
+    build:
+      args:
+        UID: $UID
+      context: tools
+    image: onlelonely/tools:latest
+
+

@@ -34,4 +34,11 @@ services:
       context: samtools
     image: onlelonely/samtools:latest
 
+  tools:
+    build:
+      args:
+        UID: 1003
+      context: tools
+    image: onlelonely/tools:latest
+
 
