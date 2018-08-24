@@ -4,8 +4,23 @@ WES pipeline & analysis tools
 **Maintainer:** Li Hsin Chang
 **Contact:** cc1296@ym.edu.tw
 
-VGHTPE Ihlee lab dockerized WES pipeline 
+VGHTPE Ihlee lab dockerized WES pipeline backup
 
+## Automated script
+You can use my python script to build up the whole envrionment though the script may not work on your workstation.
+The script will set up docker, docker-compose and asking whether download GATK resource bundle and ANNOVAR references or not.
+Download these DBs will be a long proccess and I did not write an auto reconnect mechanism so I suggest you can download GATK resource buldle via filezella or other FTP clients.
+
+Requirement:
+Python3 & distro module
+
+```bash
+git clone https://github.com/onlelonely/WES.git
+cd WES
+python install.py
+```
+
+or you can dou it manually
 ## Getting started
 First of all, you need to install Docker & docker compose.
 
@@ -61,16 +76,38 @@ and you'll get
 > https://docs.docker.com/engine/userguide/
 
 ***
+## Set up reference DBs & build docker images
 
-annovar you should download annovar.latest.tar.gz and build youreslf
+You can download GATK resource bundle via FTP client.
+```
+HOST:ftp.broadinstitute.org
+USER:gsapubftp-anonymous
+PASSWORD:
+```
+And you can download ANNOVAR references via annotate_variation.pl
+```bash
+perl annotate_variation.pl -buildver {hg version} -downdb -webfrom annovar {db name} {path}
+```
+For example, the DBs I use are hg38 version and store in ref/humandb folder
+```
+perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar refgene ref/humandb
+perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar ensGene ref/humandb
+perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar phastConsElements46way ref/humandb
+perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar genomicSuperDups ref/humandb
+perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar 1000g2015aug ref/humandb
+perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar avsnp147 ref/humandb
+perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar dbnsfp33a ref/humandb
+perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar gnomad_genome ref/humandb
+perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar gnomad_exome ref/humandb
+perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar clinvar_20180603 ref/humandb
+perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar cadd13gt10 ref/humandb
+perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar dbscsnv11 ref/humandb
+perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar intervar_20180118 ref/humandb
+perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar esp6500siv2_all ref/humandb
+perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar exac03 ref/humandb
+perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar mcap ref/humandb
+perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar revel ref/humandb
+perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar gerp++elem ref/humandb
+```
 
-- [fastqc](https://hub.docker.com/r/onlelonely/fastqc/)
-- [bwa](https://hub.docker.com/r/onlelonely/bwa/)
-- [Samtools](https://hub.docker.com/r/onlelonely/samtools/)
-- [bwa & samtools & Anconda for pipeline](https://hub.docker.com/r/onlelonely/tools/)
 
-Command examples:
-To open FastQC GUI
-	docker run -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v YourDATA -it fastqc
-Directly use command line
-	docker run -v DATAPATH:/DATA -it fastqc /DATA/YourBAM
