@@ -95,7 +95,7 @@ perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar ensGene ref/h
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar phastConsElements46way ref/humandb
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar genomicSuperDups ref/humandb
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar 1000g2015aug ref/humandb
-perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar avsnp147 ref/humandb
+perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar avsnp150 ref/humandb
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar dbnsfp33a ref/humandb
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar gnomad_genome ref/humandb
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar gnomad_exome ref/humandb
