@@ -1,12 +1,12 @@
 #!/bin/bash
 
-for subject in 5 6 9 11 12 13 14 15 16 20 21 23 24 25 26 28 32 33 34 38 40 44 45 46 47 48 49 50 53 55 64 65 72 74 78 81 82 83 86 95 96 99 100 102
+for subject in bA625 bA627 bA707 SR1 SR2
 
 do
 
 #Step1:bwa
 
-docker run --rm -v /mnt/IronWolf/WES/NGS_Data:/DATA -v /mnt/IronWolf/WES/ref:/ref -it tools pipe /ref/Homo_sapiens_assembly38.fasta /DATA/1_RAW/S$subject/$subject"_R1.fastq.gz" /DATA/1_RAW/S$subject/$subject"_R2.fastq.gz" -o /DATA/2_Sorted/$subject"_sorted.bam"
+docker run --rm -v /mnt/IronWolf/WES/NGS_Data:/DATA -v /mnt/IronWolf/WES/ref:/ref -it tools pipe /ref/Homo_sapiens_assembly38.fasta /DATA/1_RAW/$subject/$subject"_R1.fastq.gz" /DATA/1_RAW/$subject/$subject"_R2.fastq.gz" -o /DATA/2_Sorted/$subject"_sorted.bam"
 
 #Step2:Mark duplicates
 

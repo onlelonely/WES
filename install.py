@@ -13,8 +13,9 @@ import os
 import time
 import subprocess
 from ftplib import FTP
+work_dir=["1_RAW","2_Sorted","3_GATK","4_VCF","5_Annotation","6_QC"]
 destination = "ref"
-dbs=["refgene","ensGene","phastConsElements46way","genomicSuperDups","1000g2015aug","avsnp147","dbnsfp33a","gnomad_genome","gnomad_exome","clinvar_20180603","cadd13gt10","dbscsnv11","intervar_20180118","esp6500siv2_all","exac03","mcap","revel","gerp++elem"]
+dbs=["refgene","ensGene","phastConsElements46way","genomicSuperDups","1000g2015aug","avsnp147","dbnsfp33a","gnomad_genome","gnomad_exome","clinvar_20180603","cadd13gt10","dbscsnv11","intervar_20180118","esp6500siv2_all","exac03","mcap","revel"]
 
 def gatk_download(destination,version):
     ftp = FTP("ftp.broadinstitute.org")
@@ -33,6 +34,11 @@ def gatk_download(destination,version):
             pass
     return
 
+for folder in work_dir:
+    if os.path.exists("NGS_Data/"+folder):
+        pass
+    else:
+        os.mkdir("NGS_Data/"+folder)
 
 outfile=open("install.sh","w")
 
@@ -44,6 +50,7 @@ elif(distro.linux_distribution(full_distribution_name=False)[0]) =="ubuntu":
     outfile.write("curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -\nsudo add-apt-repository \"deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable\"\nsudo apt-get update\nsudo apt-get install -y docker-ce")     
 
 outfile.write("source env.sh; rm -rf docker-compose.yml; envsubst < \"template.yml\" > \"docker-compose.yml\";\n")
+outfile.write("docker pull broadinstitute/gatk:4.beta.6")
 outfile.write("docker-compose up\ndocker rm $(docker ps -a -q)\n")
 
 while True:
