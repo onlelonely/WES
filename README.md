@@ -92,21 +92,18 @@ For example, the DBs I use are hg38 version and store in ref/humandb folder
 ```
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar refgene ref/humandb
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar ensGene ref/humandb
-perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar genomicSuperDups ref/humandb
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar 1000g2015aug ref/humandb
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar avsnp150 ref/humandb
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar dbnsfp33a ref/humandb
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar gnomad_genome ref/humandb
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar gnomad_exome ref/humandb
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar clinvar_20180603 ref/humandb
-perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar cadd13gt10 ref/humandb
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar dbscsnv11 ref/humandb
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar intervar_20180118 ref/humandb
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar esp6500siv2_all ref/humandb
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar exac03 ref/humandb
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar mcap ref/humandb
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar revel ref/humandb
-perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar gerp++elem ref/humandb
 ```
 
 
