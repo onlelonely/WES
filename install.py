@@ -50,7 +50,7 @@ elif(distro.linux_distribution(full_distribution_name=False)[0]) =="ubuntu":
     outfile.write("curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -\nsudo add-apt-repository \"deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable\"\nsudo apt-get update\nsudo apt-get install -y docker-ce")     
 
 outfile.write("source env.sh; rm -rf docker-compose.yml; envsubst < \"template.yml\" > \"docker-compose.yml\";\n")
-outfile.write("docker pull broadinstitute/gatk:4.beta.6")
+outfile.write("docker pull broadinstitute/gatk:4.beta.6\n")
 outfile.write("docker-compose up\ndocker rm $(docker ps -a -q)\n")
 
 while True:
