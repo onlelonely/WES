@@ -10,11 +10,6 @@ RUN set -e \
       && tar xvf /tmp/annovar.latest.tar.gz -C /usr/local --remove-files \
       && find /usr/local/annovar -type f -maxdepth 1 -executable | xargs -i ln -s {} /usr/local/bin
 
-ARG UID
-
-RUN useradd -u $UID ihlee
-
-USER ihlee
 ENTRYPOINT ["/usr/bin/perl", "/usr/local/annovar/table_annovar.pl"]
 
 
