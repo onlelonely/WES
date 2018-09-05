@@ -92,7 +92,6 @@ For example, the DBs I use are hg38 version and store in ref/humandb folder
 ```
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar refgene ref/humandb
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar ensGene ref/humandb
-perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar phastConsElements46way ref/humandb
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar genomicSuperDups ref/humandb
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar 1000g2015aug ref/humandb
 perl annotate_variation.pl -buildver hg38 -downdb -webfrom annovar avsnp150 ref/humandb
